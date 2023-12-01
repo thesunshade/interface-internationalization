@@ -12,12 +12,12 @@
 }
 
 
-.missing,
-.obsolete,
-.untranslated {
+.output {
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
     margin-top: 20px;
+    border-radius: 10px;
+    border: solid 2px rgb(151, 151, 151)
 }
 
 .missing {
@@ -32,16 +32,10 @@
     background-color: lightgrey;
 }
 
-.missing:empty {
-    background-color: transparent;
-}
-
-.untranslated:empty {
-    background-color: transparent;
-}
-
+.missing:empty,
+.untranslated:empty,
 .obsolete:empty {
-    background-color: transparent;
+    display: none;
 }
 
 
