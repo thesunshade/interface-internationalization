@@ -3,16 +3,49 @@
 }
 
 
-.missing-heading {
+.missing-heading,
+.untranslated-heading,
+.obsolete-heading {
     font-size: 1.5rem;
     margin-top: 20px;
     font-weight: bold;
 }
 
 
-.missing {
-    background-color: cornsilk;
+.missing,
+.obsolete,
+.untranslated {
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
     margin-top: 20px;
+}
+
+.missing {
+    background-color: cornsilk;
+}
+
+.untranslated {
+    background-color: lightblue;
+}
+
+.obsolete {
+    background-color: lightgrey;
+}
+
+.missing:empty {
+    background-color: transparent;
+}
+
+.untranslated:empty {
+    background-color: transparent;
+}
+
+.obsolete:empty {
+    background-color: transparent;
+}
+
+
+.description {
+    color: gray;
+    font-style: italic;
 }
