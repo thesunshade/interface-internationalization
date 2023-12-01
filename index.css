@@ -50,10 +50,13 @@
 }
 
 #copyButton {
-    position: relative;
+    /* position: relative;
     float: inline-end;
     top: -60px;
-    right: 10px;
+    right: 10px; */
+    display: block;
+    float: right;
+    margin-bottom: 10px;
     cursor: pointer;
     background-color: #3498db;
     color: #fff;
