@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #copyButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      #copyButton.copied {
+        background-color: #2ecc71;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function createCopyButton(targetElement, targetVariable) {
+          // Create copy button
+          const copyButton = document.createElement("button");
+          copyButton.id = "copyButton";
+          copyButton.innerText = "Copy";
+
+          // Append button to the target element
+          targetElement.appendChild(copyButton);
+
+          // Add click event listener to the copy button
+          copyButton.addEventListener("click", function () {
+            // Copy value to clipboard
+            navigator.clipboard.writeText(targetVariable);
+
+            // Change button text to "Copied!"
+            copyButton.innerText = "Copied!";
+
+            // Toggle class for transition effect
+            copyButton.classList.add("copied");
+
+            // Reset button text after 5 seconds
+            setTimeout(function () {
+              copyButton.innerText = "Copy";
+              copyButton.classList.remove("copied");
+            }, 5000);
+          });
+        }
+
+        // Function to initialize the example
+        function initializeExample() {
+          const addButton = document.getElementById("addButton");
+          const container = document.getElementById("container");
+
+          // Add click event listener to the "Add Copy Button" button
+          addButton.addEventListener("click", function () {
+            const arbitraryVariable = "Hello, world!";
+            createCopyButton(container, arbitraryVariable);
+          });
+        }
+
+        // Initialize the example
+        initializeExample();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <!-- Button to add the copy button dynamically -->
+      <button id="addButton">Add Copy Button</button>
+    </div>
+  </body>
+</html>

@@ -11,6 +11,10 @@
     font-weight: bold;
 }
 
+.missing-heading {
+    max-width: 80%;
+}
+
 
 .output {
     font-family: 'Courier New', Courier, monospace;
@@ -22,6 +26,7 @@
 
 .missing {
     background-color: cornsilk;
+    /* padding-top: 50px; */
 }
 
 .untranslated {
@@ -42,4 +47,22 @@
 .description {
     color: gray;
     font-style: italic;
+}
+
+#copyButton {
+    position: relative;
+    float: inline-end;
+    top: -60px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#copyButton.copied {
+    background-color: #2ecc71;
 }

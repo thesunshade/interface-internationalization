@@ -1,7 +1,11 @@
-import { missingOutput, fileLocatoin, missingHeading } from "../index.js";
+import { fileLocation, missingHeading, missingOutput, obsoleteHeading, obsoleteOutput, untranslatedHeading, untranslatedOutput } from "../index.js";
 
 export function clearInterface() {
+  fileLocation.innerHTML = "";
   missingOutput.innerHTML = "";
-  fileLocatoin.innerHTML = "";
   missingHeading.innerHTML = "";
+  obsoleteHeading.innerText = "";
+  obsoleteOutput.innerText = "";
+  untranslatedHeading.innerText = "";
+  untranslatedOutput.innerText = "";
 }
