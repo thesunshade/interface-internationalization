@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap');
+
+
+
+
+
+:root {
+    --off-white: rgb(246, 229, 210);
+    --off-black: rgb(29, 9, 2);
+}
+
+
+body {
+    background-color: var(--off-black);
+    color: var(--off-white);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
 .file-location {
     margin-top: 20px;
 }
@@ -17,11 +37,12 @@
 
 
 .output {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fira Code', monospace;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
-    border: solid 2px rgb(151, 151, 151)
+    border: solid 2px rgb(151, 151, 151);
+    color: var(--off-black);
 }
 
 .missing {
@@ -58,7 +79,7 @@
     float: right;
     margin-bottom: 10px;
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #B80C09;
     color: #fff;
     border: none;
     padding: 8px 12px;
@@ -67,5 +88,5 @@
 }
 
 #copyButton.copied {
-    background-color: #2ecc71;
+    background-color: #0B4F6C;
 }

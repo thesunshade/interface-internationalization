@@ -60,11 +60,11 @@ function generateMissing(rootInterface, targetInterface) {
     const targetTranslation = targetInterface[key];
     if (!targetTranslation) {
       if (obsolete.includes(key)) {
-        notUsed += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}" , \n`;
+        notUsed += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}",\n`;
       } else if (untranslated.includes(key)) {
-        leaveUntranslated += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}" , \n`;
+        leaveUntranslated += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}",\n`;
       } else {
-        missing += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}" , \n`;
+        missing += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}",\n`;
       }
     }
   }
