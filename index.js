@@ -10,8 +10,22 @@ export const obsoleteOutput = document.getElementById("obsolete");
 export const fileLocation = document.getElementById("file-location");
 const allLanguageButton = document.getElementById("submit-all-language");
 const allTranslationsArea = document.getElementById("all-translations");
+const clearButton = document.getElementById("clear-button");
 export let languageObject = {};
 let fileName = "";
+
+// clear button
+
+clearButton.addEventListener("click", () => {
+  fileLocation.innerHTML = "";
+  missingHeading.innerHTML = "";
+  missingOutput.innerHTML = "";
+  untranslatedHeading.innerHTML = "";
+  untranslatedOutput.innerHTML = "";
+  obsoleteHeading.innerHTML = "";
+  obsoleteOutput.innerHTML = "";
+  allTranslationsArea.innerHTML = "";
+});
 
 // language dropdown
 const languageDropdown = document.getElementById("languages");

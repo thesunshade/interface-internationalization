@@ -61,7 +61,7 @@ export function checkCoverage(languageId, fileName) {
       untranslatedOutput.innerText = leaveUntranslated ? leaveUntranslated : "";
 
       fileLocation.innerHTML = someTranslationExists
-        ? `Existing ${targetFile} located at <a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}</a>`
+        ? `Existing <code>${targetFile}</code> located at <code><a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}</a></code>`
         : `❌ There is no <code>${targetFile}</code> file for ${languageObject[languageId]}. The file should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
     })
     .catch(error => {});

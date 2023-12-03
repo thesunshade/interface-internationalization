@@ -80,6 +80,10 @@ code {
     color: var(--primary-color-light)
 }
 
+.message-box a:hover {
+    color: var(--primary-color)
+}
+
 
 .missing-heading,
 .untranslated-heading,
