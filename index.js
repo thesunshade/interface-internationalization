@@ -9,7 +9,7 @@ export const obsoleteHeading = document.getElementById("obsolete-heading");
 export const obsoleteOutput = document.getElementById("obsolete");
 export const fileLocation = document.getElementById("file-location");
 const allLanguageButton = document.getElementById("submit-all-language");
-const noTranslationsArea = document.getElementById("no-translations");
+const allTranslationsArea = document.getElementById("all-translations");
 export let languageObject = {};
 let fileName = "";
 
@@ -60,18 +60,31 @@ submitLanguageButton.addEventListener("click", e => {
 });
 
 allLanguageButton.addEventListener("click", () => {
-  noTranslationsArea.innerHTML = `<h2>The following have no translations of the <code>${fileName}</code> file:</h2>`;
+  allTranslationsArea.innerHTML = `
+  <h2>The following have no translations of the <code>${fileName}</code> file:</h2>
+  <div id="no-translations"></div>
+  <h2>The following have some or all translations of the <code>${fileName}</code> file:</h2>
+  <div id="some-translations"></div>  `;
+  const noTranslationArea = document.getElementById("no-translations");
+  const someTranslationArea = document.getElementById("some-translations");
   const languageIds = Object.keys(languageObject);
   for (let i = 0; i < languageIds.length; i++) {
     const languageId = languageIds[i];
-    const target = fetch(`https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/${languageId}/site/${fileName}-${languageId}-site.json`)
+    const fileLocation = `https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/${languageId}/site/${fileName}_translation-${languageId}-site.json`;
+    const target = fetch(fileLocation)
       .then(response => response.json())
-      .then(data => {})
+      .then(data => {
+        console.log("success " + languageId);
+        const newDiv = document.createElement("div");
+        let description = descriptions[languageId] ? `<span class="description">(${descriptions[languageId]})</span>` : "";
+        newDiv.innerHTML = `<a href="${fileLocation}">${languageObject[languageId]}</a> ${description}`;
+        someTranslationArea.appendChild(newDiv);
+      })
       .catch(error => {
         const newDiv = document.createElement("div");
-        newDiv.innerHTML = `${languageObject[languageId]} <span class="description">${descriptions[languageId]}</span>`;
-        // newDiv.appendChild(node);
-        noTranslationsArea.appendChild(newDiv);
+        let description = descriptions[languageId] ? `<span class="description">(${descriptions[languageId]})</span>` : "";
+        newDiv.innerHTML = `${languageObject[languageId]} ${description}`;
+        noTranslationArea.appendChild(newDiv);
       });
   }
 });

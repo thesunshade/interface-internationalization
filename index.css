@@ -3,10 +3,14 @@
 
 
 :root {
-    --off-white: rgb(246, 229, 210);
-    --off-black: rgb(29, 9, 2);
+    --off-white: #f6e5d2;
+    --off-black: #1d0902;
     --primary-color: #B80C09;
+    --primary-color-light: #d11411;
+    --primary-color-dark: #840907;
     --secondary-color: #0B4F6C;
+    --gray: #808080;
+    --dark-gray: #5a5a5a;
 }
 
 
@@ -37,11 +41,21 @@ select {
     color: var(--off-white);
     border: solid 0px;
     padding: 3px;
-    background-color: #B80C09;
-    color: #fff;
     border: none;
     padding: 4px 8px;
     border-radius: 5px;
+
+}
+
+button:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-1px);
+    box-shadow: inset 0 0 2px var(--accentColor);
+}
+
+.output button {
+    min-width: 9rem;
+    margin-left: 5px;
 }
 
 select option:hover {
@@ -54,8 +68,16 @@ code {
     font-weight: 700;
 }
 
-.file-location {
+.message-box {
     margin-top: 20px;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--dark-gray)
+}
+
+.message-box a {
+    color: var(--primary-color-light)
 }
 
 
@@ -77,7 +99,7 @@ code {
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
-    border: solid 2px rgb(90, 90, 90);
+    border: solid 2px var(--dark-gray);
     color: var(--off-black);
 }
 
@@ -87,30 +109,27 @@ code {
 }
 
 .untranslated {
-    background-color: grey;
+    background-color: var(--gray);
 }
 
 .obsolete {
-    background-color: grey;
+    background-color: var(--gray);
 }
 
 .missing:empty,
 .untranslated:empty,
-.obsolete:empty {
+.obsolete:empty,
+.message-box:empty {
     display: none;
 }
 
 
 .description {
-    color: gray;
+    color: var(--off-white);
     font-style: italic;
 }
 
 #copyButton {
-    /* position: relative;
-    float: inline-end;
-    top: -60px;
-    right: 10px; */
     display: block;
     float: right;
     margin-bottom: 10px;
@@ -119,6 +138,6 @@ code {
     transition: background-color 0.3s;
 }
 
-#copyButton.copied {
-    background-color: #0B4F6C;
+.clicked {
+    background-color: var(--secondary-color);
 }
