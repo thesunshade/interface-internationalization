@@ -74,10 +74,10 @@ allLanguageButton.addEventListener("click", () => {
     const target = fetch(fileLocation)
       .then(response => response.json())
       .then(data => {
-        console.log("success " + languageId);
+        const githubPageLocation = `https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${fileName}_translation-${languageId}-site.json`;
         const newDiv = document.createElement("div");
         let description = descriptions[languageId] ? `<span class="description">(${descriptions[languageId]})</span>` : "";
-        newDiv.innerHTML = `<a href="${fileLocation}">${languageObject[languageId]}</a> ${description}`;
+        newDiv.innerHTML = `<a href="${githubPageLocation}"  rel="noreferrer" target="_blank">${languageObject[languageId]}</a> ${description}`;
         someTranslationArea.appendChild(newDiv);
       })
       .catch(error => {
