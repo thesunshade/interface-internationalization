@@ -43,7 +43,7 @@ function buildFileDropdown() {
     filesDropdown.innerHTML += `<option value="${fileKeys[i]}">${fileKeys[i]}</options>`;
   }
   filesDescription.innerHTML = `This file is ${files[fileKeys[0]]}`;
-  fileName = fileKeys[1];
+  fileName = fileKeys[0];
 
   filesDropdown.addEventListener("change", e => {
     const selected = e.target.value;
