@@ -3,18 +3,20 @@ import { obsolete, untranslated } from "../data/exceptions.js";
 import { missingOutput, languageObject, missingHeading, obsoleteHeading, obsoleteOutput, untranslatedHeading, untranslatedOutput, fileLocation } from "../index.js";
 import createCopyButton from "./createCopyButton.js";
 
-export function checkCoverage(languageId) {
+export function checkCoverage(languageId, fileName) {
+  const rootFile = `${fileName}_root-en-site.json`;
+  const targetFile = `${fileName}_translation-${languageId}-site.json`;
+
   let someTranslationExists = true;
-  const root = fetch(`https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/en/site/interface_root-en-site.json`)
+  const root = fetch(`https://raw.githubusercontent.com/suttacentral/bilara-data/published/root/en/site/${rootFile}`)
     .then(response => response.json())
     .catch(error => {});
 
-  const target = fetch(`https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/${languageId}/site/interface_translation-${languageId}-site.json`)
+  const target = fetch(`https://raw.githubusercontent.com/suttacentral/bilara-data/published/translation/${languageId}/site/${targetFile}`)
     .then(response => response.json())
     .catch(error => {
       clearInterface();
       someTranslationExists = false;
-      // missingOutput.innerText = `❌There is no interface tranlsation for ${languageObject[languageId]}.`;
     });
 
   Promise.all([root, target])
@@ -23,8 +25,8 @@ export function checkCoverage(languageId) {
 
       const { missing, leaveUntranslated, notUsed } = generateMissing(rootInterface, targetInterface);
 
-      missingHeading.innerText = missing ? `Items missing from the ${languageObject[languageId]} interface:` : "";
-      missingOutput.innerText = missing ? missing : `✅The ${languageObject[languageId]} language interface file is complete.`;
+      missingHeading.innerHTML = missing ? `Items missing from the ${languageObject[languageId]} <code>${targetFile}</code>:` : "";
+      missingOutput.innerText = missing ? missing : `✅The ${languageObject[languageId]} language ${targetFile} file is complete.`;
 
       if (missing) {
         createCopyButton(missingOutput, missing);
@@ -37,8 +39,8 @@ export function checkCoverage(languageId) {
       untranslatedOutput.innerText = leaveUntranslated ? leaveUntranslated : "";
 
       fileLocation.innerHTML = someTranslationExists
-        ? `Existing file located at <a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/interface_translation-${languageId}-site.json">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/interface_translation-${languageId}-site.json</a>`
-        : `❌ There is no interface tranlsation for ${languageObject[languageId]}. The file name should be <code>interface_translation-${languageId}-site.json</code> and it should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
+        ? `Existing ${targetFile} located at <a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}</a>`
+        : `❌ There is no <code>${targetFile}</code> file for ${languageObject[languageId]}. The file should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
     })
     .catch(error => {});
 }

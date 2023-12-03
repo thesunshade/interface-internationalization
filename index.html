@@ -10,9 +10,14 @@
   </head>
 
   <body>
-    <label for="languages">Choose a language to check:</label>
-    <select name="languages" id="languages"></select>
-    <button id="submit-language">Submit</button>
+    <div class="options">
+      <label for="languages">Language:</label>
+      <select name="languages" id="languages"></select>
+      <label for="files">File:</label>
+      <select name="files" id="files"></select>
+      <button id="submit-language">Submit</button>
+    </div>
+    <div id="file-description" class="notice"></div>
     <div id="file-location" class="file-location"></div>
     <div id="missing-heading" class="missing-heading"></div>
     <div id="missing" class="missing output"></div>

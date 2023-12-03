@@ -1,6 +1,4 @@
 export default function createCopyButton(targetElement, targetVariable) {
-  console.log("create copy button", targetElement, { targetVariable });
-
   const copyButton = document.createElement("button");
   copyButton.id = "copyButton";
   copyButton.innerText = "Copy";
