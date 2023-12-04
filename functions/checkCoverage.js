@@ -4,6 +4,7 @@ import { missingOutput, languageObject, missingHeading, obsoleteHeading, obsolet
 import createCopyButton from "./createCopyButton.js";
 import createButton from "./createButton.js";
 import { saveToFile } from "./saveToFile.js";
+import { jsonIcon, csvIcon, cautionIcon, checkIcon } from "../images/icons.js";
 
 export function checkCoverage(languageId, fileName) {
   const rootFile = `${fileName}_root-en-site.json`;
@@ -28,7 +29,7 @@ export function checkCoverage(languageId, fileName) {
       const { missing, missingCSV, leaveUntranslated, notUsed } = generateMissing(rootInterface, targetInterface);
 
       missingHeading.innerHTML = missing ? `Items missing from the ${languageObject[languageId]} <code>${targetFile}</code>:` : "";
-      missingOutput.innerText = missing ? wrapCurlyBrackets(missing) : `✅The ${languageObject[languageId]} language ${targetFile} file is complete.`;
+      missingOutput.innerHTML = missing ? wrapCurlyBrackets(missing) : `${checkIcon} The ${languageObject[languageId]} language ${targetFile} file is complete.`;
 
       if (missing) {
         createCopyButton(missingOutput, missing);
@@ -37,7 +38,7 @@ export function checkCoverage(languageId, fileName) {
           targetElement: missingOutput,
           targetVariable: missing,
           fileName: targetFile,
-          buttonText: `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path style="fill:none;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke:#f6e5d2;stroke-opacity:1;stroke-miterlimit:4" d="M80 40c-64 0 0 88-64 88 64 0 0 88 64 88M176 40c64 0 0 88 64 88-64 0 0 88-64 88" transform="scale(.0586)"/></svg> Save JSON`,
+          buttonText: `${jsonIcon} Save JSON`,
           buttonSuccessText: "Saved!",
           onClick: saveToFile,
         };
@@ -47,7 +48,7 @@ export function checkCoverage(languageId, fileName) {
           targetElement: missingOutput,
           targetVariable: missingCSV,
           fileName: targetFile.replace("json", "csv"),
-          buttonText: `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path style="fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke:#f6e5d2;stroke-opacity:1;stroke-miterlimit:10" d="M3 15h18M3 9h18M9 21V3m6 18V3M5.4 3h13.2A2.4 2.4 0 0 1 21 5.4v13.2a2.4 2.4 0 0 1-2.4 2.4H5.4A2.4 2.4 0 0 1 3 18.6V5.4A2.4 2.4 0 0 1 5.4 3zm0 0" transform="scale(.625)"/></svg> Save CSV`,
+          buttonText: `${csvIcon} Save CSV`,
           buttonSuccessText: "Saved!",
           onClick: saveToFile,
         };
@@ -62,7 +63,7 @@ export function checkCoverage(languageId, fileName) {
 
       fileLocation.innerHTML = someTranslationExists
         ? `Existing <code>${targetFile}</code> located at <code><a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}</a></code>`
-        : `❌ There is no <code>${targetFile}</code> file for ${languageObject[languageId]}. The file should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
+        : `${cautionIcon} There is no <code>${targetFile}</code> file for ${languageObject[languageId]}. The file should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
     })
     .catch(error => {});
 }

@@ -1,0 +1,9 @@
+export const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:#f6e5d2;stroke-opacity:1;stroke-miterlimit:10" d="M6 15h-.6A2.393 2.393 0 0 1 3 12.6V5.4C3 4.069 4.069 3 5.4 3h7.2C13.931 3 15 4.069 15 5.4V6m-3.6 3h7.2a2.4 2.4 0 0 1 2.4 2.4v7.2a2.4 2.4 0 0 1-2.4 2.4h-7.2A2.4 2.4 0 0 1 9 18.6v-7.2A2.4 2.4 0 0 1 11.4 9zm0 0" transform="scale(.625)"/></svg>`;
+
+export const jsonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path style="fill:none;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke:#f6e5d2;stroke-opacity:1;stroke-miterlimit:4" d="M80 40c-64 0 0 88-64 88 64 0 0 88 64 88M176 40c64 0 0 88 64 88-64 0 0 88-64 88" transform="scale(.0586)"/></svg>`;
+
+export const csvIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:#f6e5d2;stroke-opacity:1;stroke-miterlimit:10" d="M3 15h18M3 9h18M9 21V3m6 18V3M5.4 3h13.2A2.4 2.4 0 0 1 21 5.4v13.2a2.4 2.4 0 0 1-2.4 2.4H5.4A2.4 2.4 0 0 1 3 18.6V5.4A2.4 2.4 0 0 1 5.4 3zm0 0" transform="scale(.625)"/></svg>`;
+
+export const cautionIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#B80C09" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" d="M12 16h.008M12 10v3m-1.425-7.783L3.517 17a1.667 1.667 0 0 0 1.425 2.5h14.116a1.666 1.666 0 0 0 1.425-2.5L13.425 5.217a1.666 1.666 0 0 0-2.85 0Z"/></svg>`;
+
+export const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#0B4F6C" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m8 13 3 3 5-7m6 3c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></svg>`;

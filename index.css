@@ -23,6 +23,7 @@ body {
 .notice {
     font-style: italic;
     padding-top: .5rem;
+    margin-left: 17rem;
 }
 
 a {
@@ -74,6 +75,11 @@ code {
     padding: 20px;
     border-radius: 10px;
     border: 2px solid var(--dark-gray)
+}
+
+.message-box svg,
+.missing svg {
+    vertical-align: middle;
 }
 
 .message-box a {

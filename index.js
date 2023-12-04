@@ -16,15 +16,13 @@ let fileName = "";
 
 // clear button
 
+function clearAll() {
+  const elementsToClear = document.querySelectorAll(".clearable");
+  elementsToClear.forEach(element => (element.innerHTML = ""));
+}
+
 clearButton.addEventListener("click", () => {
-  fileLocation.innerHTML = "";
-  missingHeading.innerHTML = "";
-  missingOutput.innerHTML = "";
-  untranslatedHeading.innerHTML = "";
-  untranslatedOutput.innerHTML = "";
-  obsoleteHeading.innerHTML = "";
-  obsoleteOutput.innerHTML = "";
-  allTranslationsArea.innerHTML = "";
+  clearAll();
 });
 
 // language dropdown
@@ -70,10 +68,12 @@ buildFileDropdown();
 
 const submitLanguageButton = document.getElementById("submit-language");
 submitLanguageButton.addEventListener("click", e => {
+  clearAll();
   checkCoverage(languageDropdown.value, fileName);
 });
 
 allLanguageButton.addEventListener("click", () => {
+  clearAll();
   allTranslationsArea.innerHTML = `
   <h2>The following have no translations of the <code>${fileName}</code> file:</h2>
   <div id="no-translations"></div>
