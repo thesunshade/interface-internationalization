@@ -26,14 +26,26 @@ export function checkCoverage(languageId, fileName) {
     .then(responses => {
       const [rootInterface, targetInterface] = responses;
 
-      const { missing, missingCSV, leaveUntranslated, notUsed } = generateMissing(rootInterface, targetInterface);
+      const { missing, missingCount, missingCSV, leaveUntranslated, notUsed } = generateMissing(rootInterface, targetInterface);
 
-      missingHeading.innerHTML = missing ? `Items missing from the ${languageObject[languageId]} <code>${targetFile}</code>:` : "";
+      console.log(missingCount);
+
+      missingHeading.innerHTML = missing ? `<code>${missingCount}</code> item${missingCount > 1 ? "s" : ""} missing from the ${languageObject[languageId]} <code>${targetFile}</code>:` : "";
       if (missing) {
         missingOutput.innerText = wrapCurlyBrackets(missing);
       } else {
         missingOutput.innerHTML = `${checkIcon} The ${languageObject[languageId]} language ${targetFile} file is complete.`;
       }
+
+      obsoleteHeading.innerText = notUsed ? `Items that are no longer used in the interface:` : "";
+      obsoleteOutput.innerText = notUsed ? notUsed : "";
+
+      untranslatedHeading.innerText = leaveUntranslated ? `Items that don't need to be translated:` : "";
+      untranslatedOutput.innerText = leaveUntranslated ? leaveUntranslated : "";
+
+      fileLocation.innerHTML = someTranslationExists
+        ? `Existing <code>${targetFile}</code> located at <code><a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}</a></code>`
+        : `${cautionIcon} There is no <code>${targetFile}</code> file for ${languageObject[languageId]}. The file should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
 
       if (missing) {
         createCopyButton(missingOutput, missing);
@@ -58,16 +70,6 @@ export function checkCoverage(languageId, fileName) {
         };
         createButton(optionsCsvButton);
       }
-
-      obsoleteHeading.innerText = notUsed ? `Items that are no longer used in the interface:` : "";
-      obsoleteOutput.innerText = notUsed ? notUsed : "";
-
-      untranslatedHeading.innerText = leaveUntranslated ? `Items that don't need to be translated:` : "";
-      untranslatedOutput.innerText = leaveUntranslated ? leaveUntranslated : "";
-
-      fileLocation.innerHTML = someTranslationExists
-        ? `Existing <code>${targetFile}</code> located at <code><a href="https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}">https://github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/${targetFile}</a></code>`
-        : `${cautionIcon} There is no <code>${targetFile}</code> file for ${languageObject[languageId]}. The file should be located at <code>github.com/suttacentral/bilara-data/blob/published/translation/${languageId}/site/</code>`;
     })
     .catch(error => {});
 }

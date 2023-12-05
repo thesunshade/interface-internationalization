@@ -8,6 +8,7 @@ export function generateMissing(rootInterface, targetInterface) {
   const rootKeys = Object.keys(rootInterface);
 
   let missing = "";
+  let missingCount = 0;
   let missingCSV = "";
   let leaveUntranslated = "";
   let notUsed = "";
@@ -24,9 +25,10 @@ export function generateMissing(rootInterface, targetInterface) {
       } else {
         missing += `"${rootKeys[i]}": "${rootInterface[rootKeys[i]]}",\n`;
         missingCSV += `"${rootKeys[i]}", "${rootInterface[rootKeys[i]]}",\n`;
+        missingCount++;
       }
     }
   }
 
-  return { missing, missingCSV, leaveUntranslated, notUsed };
+  return { missing, missingCount, missingCSV, leaveUntranslated, notUsed };
 }

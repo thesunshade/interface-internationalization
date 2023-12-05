@@ -6,4 +6,4 @@ export const csvIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="15" heigh
 
 export const cautionIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#B80C09" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5" d="M12 16h.008M12 10v3m-1.425-7.783L3.517 17a1.667 1.667 0 0 0 1.425 2.5h14.116a1.666 1.666 0 0 0 1.425-2.5L13.425 5.217a1.666 1.666 0 0 0-2.85 0Z"/></svg>`;
 
-export const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#0B4F6C" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m8 13 3 3 5-7m6 3c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></svg>`;
+export const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#106f98" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m8 13 3 3 5-7m6 3c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></svg>`;
