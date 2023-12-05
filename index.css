@@ -151,3 +151,7 @@ code {
 .clicked {
     background-color: var(--secondary-color);
 }
+
+.hide {
+    display: none;
+}
