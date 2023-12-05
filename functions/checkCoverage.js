@@ -29,7 +29,11 @@ export function checkCoverage(languageId, fileName) {
       const { missing, missingCSV, leaveUntranslated, notUsed } = generateMissing(rootInterface, targetInterface);
 
       missingHeading.innerHTML = missing ? `Items missing from the ${languageObject[languageId]} <code>${targetFile}</code>:` : "";
-      missingOutput.innerText = missing ? wrapCurlyBrackets(missing) : `${checkIcon} The ${languageObject[languageId]} language ${targetFile} file is complete.`;
+      if (missing) {
+        missingOutput.innerText = wrapCurlyBrackets(missing);
+      } else {
+        missingOutput.innerHTML = `${checkIcon} The ${languageObject[languageId]} language ${targetFile} file is complete.`;
+      }
 
       if (missing) {
         createCopyButton(missingOutput, missing);
