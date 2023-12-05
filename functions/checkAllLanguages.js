@@ -5,9 +5,9 @@ export function checkAllLanguages() {
   const fileName = localStorage.fileName;
   allTranslationsArea.classList.add("hide");
   allTranslationsArea.innerHTML = `
-    <h2>The following have no translations of the <code>${fileName}</code> file:</h2>
+    <h2>The following languages have no translations of the <code>${fileName}</code> file:</h2>
     <div id="no-translations"></div>
-    <h2>The following have some or all translations of the <code>${fileName}</code> file:</h2>
+    <h2>The following languages have some or all translations of the <code>${fileName}</code> file:</h2>
     <div id="some-translations"></div>`;
 
   const noTranslationArea = document.getElementById("no-translations");
