@@ -3,6 +3,7 @@ export const files = {
   suttaplex: "for the items on suttaplex cards",
   viewoption: "for the view options when reading a sutta",
   footer: "for the items in the footer of every page",
+  publication: "for the publication information on Bilara segmented translations",
   offline: `for the <a href="https://suttacentral.net/offline"rel="noreferrer" target="_blank">Offline download page</a>`,
   share: "for the items under the share button on suttaplex cards",
   donations: `for the <a href="https://suttacentral.net/donations"rel="noreferrer" target="_blank">Donations page</a>`,
