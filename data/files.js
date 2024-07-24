@@ -8,6 +8,7 @@ export const files = {
   share: "for the items under the share button on suttaplex cards",
   donations: `for the <a href="https://suttacentral.net/donations"rel="noreferrer" target="_blank">Donations page</a>`,
   home: "homepage specific content",
+  search: "things relatign to search feature",
   about: `for the <a href="https://suttacentral.net/about" rel="noreferrer" target="_blank">About page</a>`,
   introduction: `for the <a href="https://suttacentral.net/introduction"rel="noreferrer" target="_blank">Introduction to SuttaCentral page</a>`,
   start: `for the <a href="https://suttacentral.net/start"rel="noreferrer" target="_blank">Getting started reading suttas page</a>`,
