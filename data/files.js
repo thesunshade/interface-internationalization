@@ -1,3 +1,13 @@
+// Not included intentionally
+// abbreviations
+// an-introduction-bodhi
+// names
+// numbering
+// pirivena
+// similes
+// subjects
+// terminology
+
 export const files = {
   interface: "most of the website interface",
   suttaplex: "for the items on suttaplex cards",
@@ -12,6 +22,7 @@ export const files = {
   about: `for the <a href="https://suttacentral.net/about" rel="noreferrer" target="_blank">About page</a>`,
   introduction: `for the <a href="https://suttacentral.net/introduction"rel="noreferrer" target="_blank">Introduction to SuttaCentral page</a>`,
   start: `for the <a href="https://suttacentral.net/start"rel="noreferrer" target="_blank">Getting started reading suttas page</a>`,
+  "pali-tipitaka": `for the <a href="https://suttacentral.net/pali-tipitaka"rel="noreferrer" target="_blank">Pali Canon Overview page</a>`,
   "general-guide-sujato": `for the <a href="https://suttacentral.net/general-guide-sujato?lang=en"rel="noreferrer" target="_blank">A Reader’s Guide to the Pali Suttas</a>`,
   discourses: `for the <a href="https://suttacentral.net/discourses-guide-sujato?lang=en"rel="noreferrer" target="_blank">Discourses (i.e. Suttas) intro page</a>`,
   abhidhamma: `for the <a href="https://suttacentral.net/abhidhamma-guide-sujato"rel="noreferrer" target="_blank">Abhidhamma intro page</a>`,
